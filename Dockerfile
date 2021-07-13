@@ -9,4 +9,5 @@ RUN npm run build --prod
 
 ### STAGE 2: Run ###
 FROM nginx
-COPY --from=build-step /app/docs /usr/share/nginx/html
+COPY --from=build /app/dist/mylost-web /usr/share/nginx/html
+EXPOSE 4200
