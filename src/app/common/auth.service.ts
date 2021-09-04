@@ -9,8 +9,8 @@ import { User } from './user.entity';
 export class AuthService {
   constructor(private authApi: AuthApi) {}
 
-  login(userName: string, password: string): Observable<any> {
-    return this.authApi.login(userName, password);
+  login(username: string, password: string): Observable<any> {
+    return this.authApi.login(username, password);
   }
 
   register(userObj: User): Observable<any> {

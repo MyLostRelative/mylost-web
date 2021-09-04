@@ -1,8 +1,19 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Blog } from '../models/blog';
+import { BlogsApi } from './blogs.api';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BlogsService {
-  constructor() {}
+  constructor(private blogsApi: BlogsApi) {}
+
+  getBlogs(): Observable<Blog[]> {
+    return this.blogsApi.getBlogs();
+  }
+
+  getBlog(blogId: number): Observable<Blog> {
+    return this.blogsApi.getBlog(blogId);
+  }
 }

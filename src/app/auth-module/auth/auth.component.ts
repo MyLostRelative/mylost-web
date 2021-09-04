@@ -16,7 +16,7 @@ export class AuthComponent implements OnInit {
     lastName: new FormControl(''),
     email: new FormControl(''),
     mobileNumber: new FormControl(''),
-    userName: new FormControl(''),
+    username: new FormControl(''),
     password: new FormControl('')
   });
 
@@ -40,7 +40,7 @@ export class AuthComponent implements OnInit {
     } else {
       this.authService
         .login(
-          this.userForm.controls['userName'].value,
+          this.userForm.controls['username'].value,
           this.userForm.controls['password'].value
         )
         .subscribe((value) => {

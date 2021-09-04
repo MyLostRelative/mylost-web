@@ -9,10 +9,10 @@ export class AuthApi {
 
   constructor(public http: HttpClient) {}
 
-  login(userName: string, password: string): Observable<any> {
-    console.log('login: ', userName, password);
+  login(username: string, password: string): Observable<any> {
+    console.log('login: ', username, password);
     return this.http.post<any>(urlHelper.api('/users/login'), {
-      userName,
+      username,
       password
     });
     // return null;
