@@ -1,32 +1,37 @@
 <div>
-  <mat-card class="auth-card">
+  <mat-card class="auth-card" [formGroup]="userForm">
     <mat-card-title class="card-title">{{registering ? formTexts.registerTitle : formTexts.loginTitle}}</mat-card-title>
     <div fxLayout="column" fxLayoutAling="center center">
       <div *ngIf="registering" fxLayout="column" fxLayoutAling="center center">
         <mat-form-field appearance="outline">
           <mat-label>სახელი</mat-label>
-          <input matInput placeholder="შეიყვანეთ სახელი">
+          <input matInput placeholder="შეიყვანეთ სახელი" formControlName="firstName">
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>გვარი</mat-label>
-          <input matInput placeholder="შეიყვანეთ გვარი">
+          <input matInput placeholder="შეიყვანეთ გვარი" formControlName="lastName">
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>ელ. ფოსტა</mat-label>
-          <input matInput placeholder="შეიყვანეთ ელ. ფოსტა">
+          <input matInput placeholder="შეიყვანეთ ელ. ფოსტა" formControlName="email">
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>საკონტაქტო ნომერი</mat-label>
-          <input matInput placeholder="შეიყვანეთ საკონტაქტო ნომერი">
+          <input matInput placeholder="შეიყვანეთ საკონტაქტო ნომერი" formControlName="mobileNumber">
         </mat-form-field>
       </div>
       <mat-form-field appearance="outline">
         <mat-label>მომხმარებლის სახელი</mat-label>
-        <input matInput placeholder="შეიყვანეთ მომხმარებლის სახელი">
+        <input matInput placeholder="შეიყვანეთ მომხმარებლის სახელი" formControlName="userName">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>პაროლი</mat-label>
-        <input matInput placeholder="შეიყვანეთ პაროლი" [type]="hidePassword ? 'password' : 'text'">
+        <input
+          matInput
+          placeholder="შეიყვანეთ პაროლი"
+          [type]="hidePassword ? 'password' : 'text'"
+          formControlName="password"
+        >
         <button
           mat-icon-button
           matSuffix
@@ -42,7 +47,7 @@
       <button mat-button (click)="registering = !registering">
         {{registering ? formTexts.loginButtonLabel : formTexts.registerButtonLabel}}
       </button>
-      <button mat-raised-button color="primary">
+      <button mat-raised-button color="primary" (click)="onSubmit()">
         {{registering ? formTexts.registerButtonLabel : formTexts.loginButtonLabel}}
       </button>
     </mat-card-actions>
