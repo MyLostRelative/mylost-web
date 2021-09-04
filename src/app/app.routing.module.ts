@@ -5,13 +5,18 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./dashboard/dashboard.module').then((m) => m.AdsModule)
+      import('./dashboard-module/dashboard.module').then((m) => m.AdsModule)
   },
   {
     path: 'blogs',
     loadChildren: () =>
       import('./blogs-module/blogs.module').then((m) => m.BlogsModule)
-  }
+  },
+  {
+    path: 'auth',
+    loadChildren: () =>
+      import('./auth-module/auth.module').then((m) => m.AuthModule)
+  },
 ];
 
 @NgModule({

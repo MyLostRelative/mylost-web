@@ -1,9 +1,20 @@
 <mat-toolbar color="primary">
-  <mat-toolbar-row class="toolbar-row">
-    <div>My Lost Relative</div>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>menu</mat-icon>
-    </button>
+  <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
+    <div class="home-button" [routerLink]="''">My Lost Relative</div>
+    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="16px">
+      <button mat-flat-button [routerLink]="'./auth'">ავტორიზაცია</button>
+      <button
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with menu icon"
+        [matMenuTriggerFor]="menu"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item [routerLink]="'./blogs'">ბლოგის სივრცე</button>
+      </mat-menu>
+    </div>
   </mat-toolbar-row>
 </mat-toolbar>
 
