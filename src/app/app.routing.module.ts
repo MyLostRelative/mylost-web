@@ -5,7 +5,7 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./ads-module/ads.module').then((m) => m.AdsModule)
+      import('./dashboard/dashboard.module').then((m) => m.AdsModule)
   },
   {
     path: 'blogs',
