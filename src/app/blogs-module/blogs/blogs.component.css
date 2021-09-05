@@ -39,7 +39,7 @@
   }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 768px) {
   .blogs-container {
     grid-row-gap: 24px;
     grid-column-gap: 24px;
