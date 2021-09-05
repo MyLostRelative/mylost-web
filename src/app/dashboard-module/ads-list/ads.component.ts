@@ -6,7 +6,7 @@ import { AdsService } from '../ads.service';
   templateUrl: './ads.component.html',
   styleUrls: ['./ads.component.css']
 })
-export class AdsComponent implements OnInit {
+export class AdsListComponent implements OnInit {
   constructor(private adsService: AdsService) {}
 
   ngOnInit(): void {
