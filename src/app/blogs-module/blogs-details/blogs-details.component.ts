@@ -5,10 +5,10 @@ import { BlogsService } from '../blogs.service';
 
 @Component({
   selector: 'app-details',
-  templateUrl: './details.component.html',
-  styleUrls: ['./details.component.css']
+  templateUrl: './blogs-details.component.html',
+  styleUrls: ['./blogs-details.component.css']
 })
-export class DetailsComponent implements OnInit {
+export class BlogsDetailsComponent implements OnInit {
   activeRoute: ActivatedRoute;
   blog: Blog;
   constructor(protected injector: Injector, private blogsService: BlogsService) {

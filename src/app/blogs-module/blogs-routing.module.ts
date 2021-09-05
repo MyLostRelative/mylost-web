@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BlogsComponent } from './blogs/blogs.component';
-import { DetailsComponent } from './details/details.component';
+import { BlogsListComponent } from './blogs-list/blogs-list.component';
+import { BlogsDetailsComponent } from './blogs-details/blogs-details.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: BlogsComponent
+    component: BlogsListComponent
   },
   {
     path: ':id',
-    component: DetailsComponent
+    component: BlogsDetailsComponent
   }
 ];
 

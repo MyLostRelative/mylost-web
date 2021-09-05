@@ -4,10 +4,10 @@ import { BlogsService } from '../blogs.service';
 
 @Component({
   selector: 'app-blogs',
-  templateUrl: './blogs.component.html',
-  styleUrls: ['./blogs.component.css']
+  templateUrl: './blogs-list.component.html',
+  styleUrls: ['./blogs-list.component.css']
 })
-export class BlogsComponent implements OnInit {
+export class BlogsListComponent implements OnInit {
   blogs: Blog[] = [];
   constructor(private blogsService: BlogsService) {}
 

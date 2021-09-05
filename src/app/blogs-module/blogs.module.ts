@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BlogsComponent } from './blogs/blogs.component';
+import { BlogsListComponent } from './blogs-list/blogs-list.component';
 import { BlogsRoutingModule } from './blogs-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { BlogsService } from './blogs.service';
 import { BlogsApi } from './blogs.api';
-import { DetailsComponent } from './details/details.component';
+import { BlogsDetailsComponent } from './blogs-details/blogs-details.component';
 
 @NgModule({
-  declarations: [BlogsComponent, DetailsComponent],
+  declarations: [BlogsListComponent, BlogsDetailsComponent],
   imports: [CommonModule, BlogsRoutingModule, SharedModule],
   providers: [BlogsService, BlogsApi]
 })
