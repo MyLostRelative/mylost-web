@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Ad } from '../models/ad';
+import { Ad } from '../../models/ad';
 import { AdsApi } from './ads.api';
 
 @Injectable({

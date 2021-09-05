@@ -5,17 +5,17 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./dashboard-module/dashboard.module').then((m) => m.AdsModule)
+      import('./modules/dashboard/dashboard.module').then((m) => m.AdsModule)
   },
   {
     path: 'blogs',
     loadChildren: () =>
-      import('./blogs-module/blogs.module').then((m) => m.BlogsModule)
+      import('./modules/blogs/blogs.module').then((m) => m.BlogsModule)
   },
   {
     path: 'auth',
     loadChildren: () =>
-      import('./auth-module/auth.module').then((m) => m.AuthModule)
+      import('./modules/auth/auth.module').then((m) => m.AuthModule)
   },
 ];
 
