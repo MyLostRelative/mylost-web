@@ -1,7 +1,14 @@
 <div>
   <mat-card class="details-card">
-    <mat-card-title class="card-title">{{blog?.title}}</mat-card-title>
-    <img class="card-image" src={{blog?.imageUrl}} />
-    <div>{{blog?.description}}</div>
+    <mat-card-title-group>
+      <mat-card-title class="card-title">{{ blog?.title }}</mat-card-title>
+      <mat-card-subtitle>{{
+        blog?.createDate | date: 'medium'
+      }}</mat-card-subtitle>
+    </mat-card-title-group>
+    <mat-card-content>
+      <img class="card-image" src="{{ blog?.imageUrl }}" />
+      <div>{{ blog?.description }}</div>
+    </mat-card-content>
   </mat-card>
 </div>

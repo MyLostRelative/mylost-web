@@ -1,9 +1,12 @@
 <div class="blogs-container">
   <mat-card *ngFor="let blog of blogs" class="blog-card" [routerLink]="blog.id">
-    <mat-card-title>{{blog.title}}</mat-card-title>
-    <div>{{blog.description}}</div>
-    <mat-card-actions align="end">
-      <button mat-raised-button color="primary" [routerLink]="blog.id">დეტალურად</button>
-    </mat-card-actions>
+    <mat-card-title-group>
+      <mat-card-title>{{ blog.title }}</mat-card-title>
+      <mat-card-subtitle>{{ blog.createDate | date:'medium' }}</mat-card-subtitle>
+      <img class="blog-image" src="{{blog.imageUrl}}" />
+    </mat-card-title-group>
+    <mat-card-content class="card-content">
+      <div class="blog-description">{{ blog.description }}</div>
+    </mat-card-content>
   </mat-card>
 </div>
