@@ -13,7 +13,6 @@ export class BlogsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.blogsService.getBlogs().subscribe((blogsObj) => {
-      console.log('got blogs: ', blogsObj);
       this.blogs = blogsObj.result;
     });
   }

@@ -20,7 +20,5 @@ export class BlogsDetailsComponent implements OnInit {
     this.blogsService.getBlog(blogId).subscribe((blogObj) => {
       this.blog = blogObj.result;
     });
-    console.log(blogId);
   }
-
 }

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { urlHelper } from '../config/api.config';
@@ -10,17 +10,21 @@ export class AuthApi {
   constructor(public http: HttpClient) {}
 
   login(username: string, password: string): Observable<any> {
-    console.log('login: ', username, password);
-    return this.http.post<any>(urlHelper.api('/users/login'), {
+    return this.http.post<any>(urlHelper.api('/auth/login'), {
       username,
       password
     });
-    // return null;
   }
 
   register(registerObj: any): Observable<any> {
-    console.log('login: ', registerObj);
     return this.http.post<any>(urlHelper.api('/users/register'), registerObj);
-    // return null;
+  }
+
+  getClientDetails(): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.getItem('token')}`
+    });
+    return this.http.get<any>(urlHelper.api('/profile'), { headers });
   }
 }

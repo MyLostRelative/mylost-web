@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
+import { firstValueFrom, Observable } from 'rxjs';
 import { AuthService } from 'src/app/common/auth.service';
 
 @Component({
@@ -27,25 +29,33 @@ export class AuthComponent implements OnInit {
     registerButtonLabel: 'რეგისტრაცია'
   };
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
 
-  onSubmit() {
-    console.log(this.userForm.value);
+  async onSubmit() {
+    let tokenObservable: Observable<any>;
     if (this.registering) {
-      this.authService.register(this.userForm.value).subscribe((value) => {
-        console.log(value);
-      });
+      tokenObservable = this.authService.register(this.userForm.value);
     } else {
-      this.authService
-        .login(
-          this.userForm.controls['username'].value,
-          this.userForm.controls['password'].value
-        )
-        .subscribe((value) => {
-          console.log(value);
-        });
+      tokenObservable = this.authService.login(
+        this.userForm.controls['username'].value,
+        this.userForm.controls['password'].value
+      );
     }
+    tokenObservable.subscribe(async (tokenObj) => {
+      const { access_token } = tokenObj;
+      if (access_token) {
+        localStorage.setItem('token', access_token);
+        localStorage.setItem('isLoggedIn', 'true');
+        await this.authService.getClientDetails();
+        if (this.authService.clientInfo) {
+          this.authService.loggedIn.next(true);
+          this.router.navigate([''], {state: {loggedIn: true}});
+        } else {
+          console.log('err');
+        }
+      }
+    });
   }
 }

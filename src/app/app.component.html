@@ -1,8 +1,6 @@
 <mat-toolbar color="primary" class="toolbar">
   <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
-    <div class="home-button" [routerLink]="''">My Lost Relative</div>
-    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="16px">
-      <button mat-flat-button [routerLink]="'./auth'">ავტორიზაცია</button>
+    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="16px">
       <button
         mat-icon-button
         class="example-icon"
@@ -14,9 +12,13 @@
       <mat-menu #menu="matMenu">
         <button mat-menu-item [routerLink]="'./blogs'">ბლოგის სივრცე</button>
       </mat-menu>
+      <div class="home-button" [routerLink]="''">My Lost Relative</div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="16px">
+      <button *ngIf="!isLoggedIn" mat-flat-button [routerLink]="'./auth'">ავტორიზაცია</button>
+      <div *ngIf="isLoggedIn">{{authService?.clientInfo?.userName}}</div>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
 
 <router-outlet class="outlet"></router-outlet>
-

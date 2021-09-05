@@ -26,13 +26,10 @@ export class AdsDetailsComponent implements OnInit {
     const adId = +this.activeRoute.snapshot.params.id;
     this.adsService.getAd(adId).subscribe((adObj) => {
       this.ad = adObj.result;
-      console.log(this.ad);
       this.usersService.getUserInfo(this.ad.userID).subscribe((userInfoObj) => {
-        console.log(userInfoObj);
         this.contactUser = userInfoObj.result;
       });
     });
-    console.log(adId);
   }
 
   redirectToMail(email: string) {
