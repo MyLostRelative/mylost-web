@@ -1,1 +1,9 @@
-<p>blogs works!</p>
+<div class="blogs-container">
+  <mat-card *ngFor="let blog of blogs" class="blog-card" [routerLink]="blog.id">
+    <mat-card-title>{{blog.title}}</mat-card-title>
+    <div>{{blog.description}}</div>
+    <mat-card-actions align="end">
+      <button mat-raised-button color="primary" [routerLink]="blog.id">დეტალურად</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

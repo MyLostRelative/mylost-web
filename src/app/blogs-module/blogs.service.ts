@@ -9,11 +9,11 @@ import { BlogsApi } from './blogs.api';
 export class BlogsService {
   constructor(private blogsApi: BlogsApi) {}
 
-  getBlogs(): Observable<Blog[]> {
+  getBlogs(): Observable<{ result: Blog[] }> {
     return this.blogsApi.getBlogs();
   }
 
-  getBlog(blogId: number): Observable<Blog> {
+  getBlog(blogId: number): Observable<{ result: Blog }> {
     return this.blogsApi.getBlog(blogId);
   }
 }

@@ -1,0 +1,16 @@
+:host {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.blogs-container {
+  margin-top: 64px;
+}
+
+.blog-card {
+  width: 500px;
+  margin-bottom: 32px;
+  cursor: pointer;
+}

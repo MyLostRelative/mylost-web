@@ -10,11 +10,11 @@ export class BlogsApi {
 
   constructor(public http: HttpClient) {}
 
-  getBlogs(): Observable<Blog[]> {
-    return this.http.get<Blog[]>(urlHelper.api('/blogs'));
+  getBlogs(): Observable<{ result: Blog[] }> {
+    return this.http.get<{ result: Blog[] }>(urlHelper.api('/blogs'));
   }
 
-  getBlog(blogId: number): Observable<Blog> {
-    return this.http.get<Blog>(urlHelper.api(`/blogs/${blogId}`));
+  getBlog(blogId: number): Observable<{ result: Blog }> {
+    return this.http.get<{ result: Blog }>(urlHelper.api(`/blogs/${blogId}`));
   }
 }

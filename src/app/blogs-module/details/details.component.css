@@ -1,0 +1,15 @@
+:host {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.details-card {
+  width: 600px;
+}
+
+.card-image {
+  width: 100%;
+}

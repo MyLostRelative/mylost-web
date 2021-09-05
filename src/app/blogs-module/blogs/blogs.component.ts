@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Blog } from 'src/app/models/blog';
 import { BlogsService } from '../blogs.service';
 
 @Component({
@@ -7,11 +8,13 @@ import { BlogsService } from '../blogs.service';
   styleUrls: ['./blogs.component.css']
 })
 export class BlogsComponent implements OnInit {
+  blogs: Blog[] = [];
   constructor(private blogsService: BlogsService) {}
 
   ngOnInit(): void {
-    this.blogsService.getBlogs().subscribe((value) => {
-      console.log('got blogs: ', value);
+    this.blogsService.getBlogs().subscribe((blogsObj) => {
+      console.log('got blogs: ', blogsObj);
+      this.blogs = blogsObj.result;
     });
   }
 }
