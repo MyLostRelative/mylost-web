@@ -10,6 +10,8 @@ import { SharedModule } from './modules/shared/shared.module';
 import { AuthService } from './common/auth.service';
 import { AuthApi } from './common/auth.api';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { UsersService } from './common/user.service';
+import { UserApi } from './common/user.api';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +22,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     SharedModule,
     HttpClientModule
   ],
-  providers: [AuthService, AuthApi, HttpClient],
+  providers: [AuthService, AuthApi, UsersService, UserApi, HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

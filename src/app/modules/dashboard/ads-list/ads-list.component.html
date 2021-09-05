@@ -1,5 +1,5 @@
 <div class="ads-container">
-  <mat-card *ngFor="let ad of ads" class="ad-card" [routerLink]="ad.id">
+  <mat-card *ngFor="let ad of ads" class="ad-card" routerLink="ads/{{ad.id}}">
     <mat-card-title-group>
       <mat-card-title>
         <div class="ad-card-title">{{ ad.title }}</div>

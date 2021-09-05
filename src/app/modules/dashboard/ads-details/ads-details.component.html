@@ -1,1 +1,63 @@
-<p>ads-details works!</p>
+<div class="container">
+  <div class="title">{{ ad?.title }}</div>
+  <div class="create-date">{{ ad?.createDate | date: 'medium' }}</div>
+  <div fxLayout="row" fxLayoutAlign="center start" fxLayoutGap="64px">
+    <div>
+      <img class="image" src="{{ ad?.imageUrl }}" />
+      <div class="description">{{ ad?.description }}</div>
+    </div>
+    <div fxLayout="column" fxLayoutGap="24px">
+      <mat-card class="user-card">
+        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="16px">
+          <img class="user-avatar" src="assets/images/avatar.jpeg" />
+          <div class="username">{{ contactUser?.firstName }}</div>
+        </div>
+        <mat-chip-list class="mat-chip-list-stacked">
+          <mat-chip
+            color="accent"
+            selected
+            fxLayout="row"
+            fxLayoutAlign="space-between center"
+            fxLayoutGap="8px"
+          >
+            <mat-icon>call</mat-icon>
+            <div>
+              {{ contactUser?.mobileNumber }}
+            </div>
+          </mat-chip>
+          <mat-chip
+            color="primary"
+            selected
+            fxLayout="row"
+            fxLayoutAlign="space-between center"
+            fxLayoutGap="8px"
+            (click)="redirectToMail(contactUser?.email)"
+          >
+            <mat-icon>contact_mail_outline</mat-icon>
+            <div class="email">
+              {{ contactUser?.email }}
+            </div>
+          </mat-chip>
+        </mat-chip-list>
+      </mat-card>
+      <mat-card fxLayout="column" fxLayoutGap="8px">
+        <div *ngIf="ad?.gender" fxLayout="row" fxLayoutAlign="space-between center">
+          <div class="indicator">სქესი:</div>
+          <div class="value">{{ ad?.gender }}</div>
+        </div>
+        <div *ngIf="ad?.relationType" fxLayout="row" fxLayoutAlign="space-between center">
+          <div class="indicator">ნათესაობა:</div>
+          <div class="value">{{ ad?.relationType }}</div>
+        </div>
+        <div *ngIf="ad?.city" fxLayout="row" fxLayoutAlign="space-between center">
+          <div class="indicator">ქალაქი:</div>
+          <div class="value">{{ ad?.city }}</div>
+        </div>
+        <div *ngIf="ad?.bloodType" fxLayout="row" fxLayoutAlign="space-between center">
+          <div class="indicator">სისხლის ჯგუფი:</div>
+          <div class="value">{{ ad?.bloodType | uppercase }}</div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>

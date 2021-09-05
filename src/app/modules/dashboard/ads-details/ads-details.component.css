@@ -1,0 +1,64 @@
+:host {
+  margin-top: 64px;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.container {
+  max-width: 800px;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.create-date {
+  color: #6d6d6d;
+  margin-bottom: 16px;
+}
+
+.image {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.description {
+  white-space: pre-wrap;
+}
+
+.user-card {
+  min-width: 200px;
+}
+
+.user-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+
+.username {
+  font-size: 18px;
+}
+
+.email {
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.indicator {
+  font-size: 16px;
+  font-weight: 500;
+  color: #283593;
+}
+
+.value {
+  font-size: 16px;
+  font-weight: 500;
+  color: #880E4F;
+}
