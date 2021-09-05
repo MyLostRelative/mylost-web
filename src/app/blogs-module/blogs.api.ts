@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { urlHelper } from '../config/api.config';
 import { Blog } from '../models/blog';

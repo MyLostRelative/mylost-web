@@ -4,9 +4,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardRoutingModule } from './dashboard.routing.module';
 import { AdsComponent } from './ads/ads.component';
 import { SharedModule } from '../shared/shared.module';
+import { AdsService } from './ads.service';
+import { AdsApi } from './ads.api';
 
 @NgModule({
   declarations: [DashboardComponent, AdsComponent],
-  imports: [CommonModule, DashboardRoutingModule, SharedModule]
+  imports: [CommonModule, DashboardRoutingModule, SharedModule],
+  providers: [AdsService, AdsApi]
 })
 export class AdsModule {}
