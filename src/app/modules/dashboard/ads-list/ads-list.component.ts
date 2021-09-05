@@ -14,6 +14,7 @@ export class AdsListComponent implements OnInit {
   ngOnInit(): void {
     this.adsService.getAds().subscribe((adsObj) => {
       console.log(adsObj);
+      this.ads = adsObj.result;
     });
   }
 }

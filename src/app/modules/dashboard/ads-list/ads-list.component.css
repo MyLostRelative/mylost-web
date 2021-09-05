@@ -1,0 +1,68 @@
+:host {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.ads-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-row-gap: 32px;
+  grid-column-gap: 32px;
+  margin: 64px 32px;
+}
+
+.ad-card {
+  max-width: 300px;
+  cursor: pointer;
+}
+
+mat-card-title {
+  font-size: 18px;
+}
+
+.ad-card-title {
+  width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ad-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.ad-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+  .ads-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .ads-container {
+    grid-row-gap: 24px;
+    grid-column-gap: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .ads-container {
+    grid-template-columns: 1fr;
+    grid-row-gap: 24px;
+    grid-column-gap: 0;
+  }
+
+  .ad-card {
+    max-width: 100%;
+  }
+}
