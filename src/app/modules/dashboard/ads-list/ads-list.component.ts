@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { Ad } from 'src/app/models/ad';
 import { AdsService } from '../ads.service';
 
 @Component({
   selector: 'app-ads',
-  templateUrl: './ads.component.html',
-  styleUrls: ['./ads.component.css']
+  templateUrl: './ads-list.component.html',
+  styleUrls: ['./ads-list.component.css']
 })
 export class AdsListComponent implements OnInit {
+  ads: Ad[] = [];
   constructor(private adsService: AdsService) {}
 
   ngOnInit(): void {
