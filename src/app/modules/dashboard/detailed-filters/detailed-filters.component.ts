@@ -22,6 +22,8 @@ export class DetailedFiltersComponent implements OnInit {
     { value: 'father', title: 'მამა' },
     { value: 'sister', title: 'და' },
     { value: 'brother', title: 'ძმა' },
+    { value: 'son', title: 'ვაჟი' },
+    { value: 'daughter', title: 'ქალიშვილი' },
     { value: 'friend', title: 'მეგობარი' },
     { value: 'other', title: 'სხვა' }
   ];
@@ -70,7 +72,7 @@ export class DetailedFiltersComponent implements OnInit {
   }
 
   onFilter() {
-    const filters = {...this.filtersForm.value};
+    const filters = { ...this.filtersForm.value };
     filters.fromAge = filters.age;
     filters.toAge = filters.age;
     this.filterEvent.emit(filters);
