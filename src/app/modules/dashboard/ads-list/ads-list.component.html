@@ -1,5 +1,5 @@
 <div class="ads-container">
-  <mat-card *ngFor="let ad of ads" class="ad-card" routerLink="ads/{{ad.id}}">
+  <mat-card *ngFor="let ad of ads" class="ad-card" routerLink="/ads/{{ad.id}}">
     <mat-card-title-group>
       <mat-card-title>
         <div class="ad-card-title">{{ ad.title }}</div>
@@ -12,7 +12,7 @@
     </mat-card-content>
     <mat-card-actions align="right">
       <button mat-stroked-button color="primary" routerLink="../users/{{ad.userId}}">დაკონტაქტება</button>
-      <button mat-raised-button color="primary" routerLink="ads/{{ad.id}}">დეტალები</button>
+      <button mat-raised-button color="primary" routerLink="/ads/{{ad.id}}">დეტალები</button>
     </mat-card-actions>
   </mat-card>
 </div>
