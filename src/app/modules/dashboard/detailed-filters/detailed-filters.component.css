@@ -27,3 +27,17 @@
   height: 40px;
   line-height: 40px;
 }
+
+@media(max-width: 1150px) {
+  .filters-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 48px 32px;
+  }
+}
+
+@media(max-width: 600px) {
+  .filters-container {
+    flex-direction: column;
+  }
+}
