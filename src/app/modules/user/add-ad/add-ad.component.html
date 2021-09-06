@@ -1,0 +1,101 @@
+<div>
+  <mat-card class="add-card" fxLayout="column" [formGroup]="addForm">
+    <mat-card-title>შექმენით ახალი განცხადება</mat-card-title>
+    <mat-form-field appearance="outline">
+      <mat-label>სათაური</mat-label>
+      <input
+        matInput
+        type="text"
+        placeholder="შეიყვანეთ სათაური"
+        formControlName="title"
+      />
+    </mat-form-field>
+    <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="16px">
+      <mat-form-field fxFlex appearance="outline">
+        <mat-label>კავშირი</mat-label>
+        <mat-select formControlName="relationType">
+          <mat-option
+            *ngFor="let relationType of relationTypes"
+            [value]="relationType.value"
+          >
+            {{ relationType.title }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field fxFlex appearance="outline">
+        <mat-label>სქესი</mat-label>
+        <mat-select formControlName="gender">
+          <mat-option *ngFor="let gender of genders" [value]="gender.value">
+            {{ gender.title }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="16px">
+      <mat-form-field fxFlex appearance="outline">
+        <mat-label>ასაკი</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder="შეიყვანეთ ასაკი"
+          formControlName="age"
+        />
+      </mat-form-field>
+      <mat-form-field fxFlex appearance="outline">
+        <mat-label>სისხლის ჯგუფი</mat-label>
+        <mat-select formControlName="bloodType">
+          <mat-option
+            *ngFor="let bloodType of bloodTypes"
+            [value]="bloodType.value"
+          >
+            {{ bloodType.title }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="16px">
+      <mat-form-field fxFlex appearance="outline">
+        <mat-label>ქალაქი</mat-label>
+        <input
+          type="text"
+          placeholder="მოძებნე ქალაქი"
+          aria-label="Number"
+          matInput
+          [matAutocomplete]="auto"
+          formControlName="city"
+        />
+        <mat-autocomplete
+          autoActiveFirstOption
+          #auto="matAutocomplete"
+          [displayWith]="displayCityFn.bind(this)"
+        >
+          <mat-option *ngFor="let city of filteredCities" [value]="city.value">
+            {{ city.title }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <mat-form-field fxFlex appearance="outline">
+        <mat-label>სურათის ბმული</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="დაურთეთ სურათის ბმული"
+          formControlName="imageUrl"
+        />
+      </mat-form-field>
+    </div>
+    <mat-form-field appearance="outline">
+      <mat-label>აღწერა</mat-label>
+      <textarea
+        matInput
+        placeholder="შეიყვანეთ აღწერა"
+        formControlName="description"
+      ></textarea>
+    </mat-form-field>
+    <mat-card-actions align="end">
+      <button mat-raised-button color="primary" (click)="register()">
+        დამატება
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

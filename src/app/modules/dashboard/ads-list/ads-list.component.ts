@@ -11,6 +11,9 @@ export class AdsListComponent implements OnInit {
   @Input()
   ads: Ad[] = [];
 
+  @Input()
+  forCabinet = false;
+
   constructor() {}
 
   ngOnInit(): void {}

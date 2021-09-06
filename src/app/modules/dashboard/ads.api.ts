@@ -35,4 +35,8 @@ export class AdsApi {
   getAdsByUserId(userId: number): Observable<{result: Ad[]}> {
     return this.http.get<{ result: Ad[] }>(urlHelper.api(`/ads/user/${userId}`));
   }
+
+  createAd(userID: number, adObj): Observable<{result: number}> {
+    return this.http.post<{result: number}>(urlHelper.api(`/ads`), {userID, ...adObj});
+  }
 }

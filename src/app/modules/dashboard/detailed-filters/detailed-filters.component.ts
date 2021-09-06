@@ -1,6 +1,7 @@
 import { EventEmitter, Output } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { cities, relationTypes, genders, bloodTypes } from 'src/app/common/filters.data';
 import { Filters } from 'src/app/models/filters';
 
 @Component({
@@ -11,38 +12,10 @@ import { Filters } from 'src/app/models/filters';
 export class DetailedFiltersComponent implements OnInit {
   @Output() filterEvent: EventEmitter<Filters> = new EventEmitter<Filters>();
 
-  genders = [
-    { value: 'female', title: 'მდედრობითი' },
-    { value: 'male', title: 'მამრობითი' },
-    { value: 'other', title: 'სხვა' }
-  ];
-
-  relationTypes = [
-    { value: 'mother', title: 'დედა' },
-    { value: 'father', title: 'მამა' },
-    { value: 'sister', title: 'და' },
-    { value: 'brother', title: 'ძმა' },
-    { value: 'son', title: 'ვაჟი' },
-    { value: 'daughter', title: 'ქალიშვილი' },
-    { value: 'friend', title: 'მეგობარი' },
-    { value: 'other', title: 'სხვა' }
-  ];
-
-  bloodTypes = [
-    { value: 'a', title: 'A' },
-    { value: 'b', title: 'B' },
-    { value: 'ab', title: 'AB' },
-    { value: 'o', title: 'O' }
-  ];
-
-  cities = [
-    { value: 'თბილისი', title: 'თბილისი' },
-    { value: 'ქუთაისი', title: 'ქუთაისი' },
-    { value: 'ბათუმი', title: 'ბათუმი' },
-    { value: 'ბორჯომი', title: 'ბორჯომი' },
-    { value: 'მესტია', title: 'მესტია' }
-  ];
-
+  cities = cities;
+  relationTypes = relationTypes;
+  genders = genders;
+  bloodTypes = bloodTypes;
   filteredCities = this.cities;
 
   filtersForm = new FormGroup({

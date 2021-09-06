@@ -27,3 +27,9 @@
 .outlet {
   margin-top: 64px;
 }
+
+.add-button {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+}

@@ -29,4 +29,8 @@ export class AdsService {
   getAdsByUserId(userId: number): Observable<{result: Ad[]}> {
     return this.adsApi.getAdsByUserId(userId);
   }
+
+  createAd(userId: number, adObj): Observable<{result: number}> {
+    return this.adsApi.createAd(userId, adObj);
+  }
 }

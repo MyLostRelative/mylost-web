@@ -30,7 +30,9 @@
         <div>{{ clientInfo?.username }}</div>
       </div>
       <mat-menu #logoutMenu="matMenu">
-        <button mat-menu-item [routerLink]="'/user/cabinet'">ჩემი გვერდი</button>
+        <button mat-menu-item [routerLink]="'/user/cabinet'">
+          ჩემი გვერდი
+        </button>
         <button mat-menu-item (click)="logOut()">გამოსვლა</button>
       </mat-menu>
     </div>
@@ -38,3 +40,12 @@
 </mat-toolbar>
 
 <router-outlet class="outlet"></router-outlet>
+
+<button
+  *ngIf="isLoggedIn"
+  mat-fab
+  class="add-button"
+  [routerLink]="'/user/add'"
+>
+  <mat-icon>add</mat-icon>
+</button>

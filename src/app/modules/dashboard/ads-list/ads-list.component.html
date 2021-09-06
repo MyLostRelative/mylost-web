@@ -11,7 +11,7 @@
       <div class="ad-description">{{ ad.description }}</div>
     </mat-card-content>
     <mat-card-actions align="right">
-      <button mat-stroked-button color="primary" routerLink="../users/{{ad.userId}}">დაკონტაქტება</button>
+      <button *ngIf="!forCabinet" mat-stroked-button color="primary" routerLink="../users/{{ad.userId}}">დაკონტაქტება</button>
       <button mat-raised-button color="primary" routerLink="/ads/{{ad.id}}">დეტალები</button>
     </mat-card-actions>
   </mat-card>
