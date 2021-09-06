@@ -1,18 +1,33 @@
 <div class="ads-container">
-  <mat-card *ngFor="let ad of ads" class="ad-card" routerLink="/ads/{{ad.id}}">
+  <mat-card
+    *ngFor="let ad of ads"
+    class="ad-card"
+    routerLink="/ads/{{ ad.id }}"
+  >
     <mat-card-title-group>
       <mat-card-title>
         <div class="ad-card-title">{{ ad.title }}</div>
       </mat-card-title>
-      <mat-card-subtitle>{{ ad.createDate | date:'medium' }}</mat-card-subtitle>
+      <mat-card-subtitle>{{
+        ad.createDate | date: 'medium'
+      }}</mat-card-subtitle>
     </mat-card-title-group>
     <mat-card-content>
-      <img class="ad-image" src="{{ad.imageUrl}}" />
+      <img class="ad-image" src="{{ ad.imageUrl }}" />
       <div class="ad-description">{{ ad.description }}</div>
     </mat-card-content>
     <mat-card-actions align="right">
-      <button *ngIf="!forCabinet" mat-stroked-button color="primary" routerLink="../users/{{ad.userId}}">დაკონტაქტება</button>
-      <button mat-raised-button color="primary" routerLink="/ads/{{ad.id}}">დეტალები</button>
+      <button
+        *ngIf="!forCabinet"
+        mat-stroked-button
+        color="primary"
+        routerLink="../users/{{ ad.userId }}"
+      >
+        დაკონტაქტება
+      </button>
+      <button mat-raised-button color="primary" routerLink="/ads/{{ ad.id }}">
+        დეტალები
+      </button>
     </mat-card-actions>
   </mat-card>
 </div>

@@ -18,6 +18,17 @@
   cursor: pointer;
 }
 
+.blog-title {
+  width: 160px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+mat-card-title {
+  font-size: 18px;
+}
+
 .blog-image {
   height: 70px;
 }
