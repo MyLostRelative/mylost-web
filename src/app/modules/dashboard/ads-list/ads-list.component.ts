@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Ad } from 'src/app/models/ad';
 import { AdsService } from '../ads.service';
 
@@ -8,12 +8,10 @@ import { AdsService } from '../ads.service';
   styleUrls: ['./ads-list.component.css']
 })
 export class AdsListComponent implements OnInit {
+  @Input()
   ads: Ad[] = [];
-  constructor(private adsService: AdsService) {}
 
-  ngOnInit(): void {
-    this.adsService.getAds().subscribe((adsObj) => {
-      this.ads = adsObj.result;
-    });
-  }
+  constructor() {}
+
+  ngOnInit(): void {}
 }

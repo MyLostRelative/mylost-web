@@ -1,0 +1,69 @@
+<div
+  class="filters-container"
+  fxLayout="row"
+  fxLayoutGap="12px"
+  [formGroup]="filtersForm"
+>
+  <mat-form-field appearance="outline">
+    <mat-label>კავშირი</mat-label>
+    <mat-select formControlName="relationType">
+      <mat-option
+        *ngFor="let relationType of relationTypes"
+        [value]="relationType.value"
+      >
+        {{ relationType.title }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>სქესი</mat-label>
+    <mat-select formControlName="gender">
+      <mat-option *ngFor="let gender of genders" [value]="gender.value">
+        {{ gender.title }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>ასაკი</mat-label>
+    <input
+      matInput
+      type="number"
+      placeholder="შეიყვანეთ ასაკი"
+      formControlName="age"
+    />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>სისხლის ჯგუფი</mat-label>
+    <mat-select formControlName="bloodType">
+      <mat-option
+        *ngFor="let bloodType of bloodTypes"
+        [value]="bloodType.value"
+      >
+        {{ bloodType.title }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>ქალაქი</mat-label>
+    <input
+      type="text"
+      placeholder="მოძებნე ქალაქი"
+      aria-label="Number"
+      matInput
+      [matAutocomplete]="auto"
+      formControlName="city"
+    />
+    <mat-autocomplete
+      autoActiveFirstOption
+      #auto="matAutocomplete"
+      [displayWith]="displayCityFn.bind(this)"
+    >
+      <mat-option *ngFor="let city of filteredCities" [value]="city.value">
+        {{ city.title }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <button mat-icon-button color="accent" class="large" (click)="onFilter()">
+    <mat-icon>search</mat-icon>
+  </button>
+</div>

@@ -7,9 +7,15 @@ import { SharedModule } from '../shared/shared.module';
 import { AdsService } from './ads.service';
 import { AdsApi } from './ads.api';
 import { AdsDetailsComponent } from './ads-details/ads-details.component';
+import { DetailedFiltersComponent } from './detailed-filters/detailed-filters.component';
 
 @NgModule({
-  declarations: [DashboardComponent, AdsListComponent, AdsDetailsComponent],
+  declarations: [
+    DashboardComponent,
+    AdsListComponent,
+    AdsDetailsComponent,
+    DetailedFiltersComponent
+  ],
   imports: [CommonModule, DashboardRoutingModule, SharedModule],
   providers: [AdsService, AdsApi]
 })
