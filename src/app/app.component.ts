@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
     if (this.isLoggedIn) {
       await this.authService.getClientDetails();
       if (!this.authService.clientInfo) {
-        this.authService.logout();
+        this.authService.logOut();
         this.isLoggedIn = false;
       }
     }
@@ -24,5 +24,9 @@ export class AppComponent implements OnInit {
     this.authService.loggedIn.subscribe((value) => {
       this.isLoggedIn = value;
     });
+  }
+
+  logOut() {
+    this.authService.logOut();
   }
 }

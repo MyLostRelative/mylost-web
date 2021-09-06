@@ -33,8 +33,9 @@ export class AuthService {
     console.log('got client info', this.clientInfo);
   }
 
-  logout() {
+  logOut() {
     localStorage.removeItem('token');
     localStorage.removeItem('isLoggedIn');
+    this.loggedIn.next(false);
   }
 }

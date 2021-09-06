@@ -14,6 +14,16 @@
   cursor: pointer;
 }
 
+.user {
+  cursor: pointer;
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
 .outlet {
   margin-top: 64px;
 }

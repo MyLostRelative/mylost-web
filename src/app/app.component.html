@@ -15,8 +15,23 @@
       <div class="home-button" [routerLink]="''">My Lost Relative</div>
     </div>
     <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="16px">
-      <button *ngIf="!isLoggedIn" mat-flat-button [routerLink]="'./auth'">ავტორიზაცია</button>
-      <div *ngIf="isLoggedIn">{{authService?.clientInfo?.username}}</div>
+      <button *ngIf="!isLoggedIn" mat-flat-button [routerLink]="'./auth'">
+        ავტორიზაცია
+      </button>
+      <div
+        *ngIf="isLoggedIn"
+        class="user"
+        [matMenuTriggerFor]="logoutMenu"
+        fxLayout="row"
+        fxLayoutAlign="end center"
+        fxLayoutGap="8px"
+      >
+        <img class="user-avatar" src="assets/images/avatar.jpeg" />
+        <div>{{ authService?.clientInfo?.username }}</div>
+      </div>
+      <mat-menu #logoutMenu="matMenu">
+        <button mat-menu-item (click)="logOut()">გამოსვლა</button>
+      </mat-menu>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
