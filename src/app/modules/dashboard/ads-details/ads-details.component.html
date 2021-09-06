@@ -45,6 +45,10 @@
           <div class="indicator">სქესი:</div>
           <div class="value">{{ ad?.gender }}</div>
         </div>
+        <div *ngIf="ad?.age" fxLayout="row" fxLayoutAlign="space-between center">
+          <div class="indicator">ასაკი:</div>
+          <div class="value">{{ ad?.age }} წელი</div>
+        </div>
         <div *ngIf="ad?.relationType" fxLayout="row" fxLayoutAlign="space-between center">
           <div class="indicator">ნათესაობა:</div>
           <div class="value">{{ ad?.relationType }}</div>
