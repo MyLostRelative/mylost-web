@@ -27,9 +27,10 @@
         fxLayoutGap="8px"
       >
         <img class="user-avatar" src="assets/images/avatar.jpeg" />
-        <div>{{ authService?.clientInfo?.username }}</div>
+        <div>{{ clientInfo?.username }}</div>
       </div>
       <mat-menu #logoutMenu="matMenu">
+        <button mat-menu-item [routerLink]="'/user/cabinet'">ჩემი გვერდი</button>
         <button mat-menu-item (click)="logOut()">გამოსვლა</button>
       </mat-menu>
     </div>

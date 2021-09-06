@@ -48,8 +48,8 @@ export class AuthComponent implements OnInit {
       if (access_token) {
         localStorage.setItem('token', access_token);
         localStorage.setItem('isLoggedIn', 'true');
-        await this.authService.getClientDetails();
-        if (this.authService.clientInfo) {
+        const clientInfo = await this.authService.getClientDetails();
+        if (clientInfo) {
           this.authService.loggedIn.next(true);
           this.router.navigate([''], {state: {loggedIn: true}});
         } else {

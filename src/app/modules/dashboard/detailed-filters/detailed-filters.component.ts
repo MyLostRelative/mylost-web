@@ -36,11 +36,11 @@ export class DetailedFiltersComponent implements OnInit {
   ];
 
   cities = [
-    { value: 'tbilisi', title: 'თბილისი' },
-    { value: 'kutaisi', title: 'ქუთაისი' },
-    { value: 'batumi', title: 'ბათუმი' },
-    { value: 'borjomi', title: 'ბორჯომი' },
-    { value: 'mestia', title: 'მესტია' }
+    { value: 'თბილისი', title: 'თბილისი' },
+    { value: 'ქუთაისი', title: 'ქუთაისი' },
+    { value: 'ბათუმი', title: 'ბათუმი' },
+    { value: 'ბორჯომი', title: 'ბორჯომი' },
+    { value: 'მესტია', title: 'მესტია' }
   ];
 
   filteredCities = this.cities;
@@ -57,7 +57,6 @@ export class DetailedFiltersComponent implements OnInit {
 
   ngOnInit(): void {
     this.filtersForm.controls['city'].valueChanges.subscribe((value) => {
-      console.log('change: ', value);
       this.filteredCities = this.cities.filter(
         (city) =>
           city.title.includes(value) || city.value.includes(value.toLowerCase())

@@ -11,7 +11,6 @@ export class AdsService {
   constructor(private adsApi: AdsApi) {}
 
   getAds(filters: Filters): Observable<{ result: Ad[] }> {
-    console.log('filters: ', filters);
     const { relationType, gender, fromAge, toAge, bloodType, city } = filters;
     return this.adsApi.getAds(
       relationType || '',
@@ -23,7 +22,11 @@ export class AdsService {
     );
   }
 
-  getAd(blogId: number): Observable<{ result: Ad }> {
-    return this.adsApi.getAd(blogId);
+  getAd(adId: number): Observable<{ result: Ad }> {
+    return this.adsApi.getAd(adId);
+  }
+
+  getAdsByUserId(userId: number): Observable<{result: Ad[]}> {
+    return this.adsApi.getAdsByUserId(userId);
   }
 }

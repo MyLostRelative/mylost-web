@@ -12,9 +12,11 @@ import { AuthApi } from './common/auth.api';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { UsersService } from './common/user.service';
 import { UserApi } from './common/user.api';
+import { AdsService } from './modules/dashboard/ads.service';
+import { AdsApi } from './modules/dashboard/ads.api';
 
 @NgModule({
-  declarations: [AppComponent],
+declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -22,7 +24,15 @@ import { UserApi } from './common/user.api';
     SharedModule,
     HttpClientModule
   ],
-  providers: [AuthService, AuthApi, UsersService, UserApi, HttpClient],
+  providers: [
+    AuthService,
+    AuthApi,
+    AdsService,
+    AdsApi,
+    UsersService,
+    UserApi,
+    HttpClient
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

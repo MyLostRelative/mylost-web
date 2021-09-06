@@ -23,7 +23,6 @@ export class DashboardComponent implements OnInit {
   }
 
   filterAds(filters: Filters) {
-    console.log(filters);
     this.getFilteredAds(filters);
   }
 }

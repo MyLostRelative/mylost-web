@@ -14,10 +14,15 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AdsListComponent } from '../dashboard/ads-list/ads-list.component';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [],
+  declarations: [AdsListComponent],
   imports: [
+    CommonModule,
+    RouterModule,
     FlexLayoutModule,
     MatToolbarModule,
     MatIconModule,
@@ -45,7 +50,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatSelectModule,
     MatAutocompleteModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AdsListComponent
   ],
   providers: []
 })

@@ -8,7 +8,6 @@ import { User } from './user.entity';
   providedIn: 'root'
 })
 export class AuthService {
-  clientInfo: ClientInfo;
   loggedIn: Subject<boolean> = new Subject();
 
   constructor(private authApi: AuthApi) {
@@ -26,11 +25,11 @@ export class AuthService {
     return this.authApi.register(userObj);
   }
 
-  async getClientDetails() {
-    this.clientInfo = (
+  async getClientDetails(): Promise<ClientInfo> {
+    const clientInfo = (
       await firstValueFrom(this.authApi.getClientDetails())
     )?.result;
-    console.log('got client info', this.clientInfo);
+    return clientInfo;
   }
 
   logOut() {
