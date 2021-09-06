@@ -13,16 +13,16 @@ export class AdsApi {
   getAds(
     relationType: string,
     gender: string,
-    fromAge: string,
-    toAge: string,
+    fromAge: number,
+    toAge: number,
     bloodType: string,
     city: string
   ): Observable<{ result: Ad[] }> {
     const params = new HttpParams()
       .set('relationType', relationType)
       .set('gender', gender)
-      .set('fromAge', fromAge)
-      .set('toAge', toAge)
+      .set('fromAge', fromAge.toString())
+      .set('toAge', toAge.toString())
       .set('bloodType', bloodType)
       .set('city', city);
     return this.http.get<{ result: Ad[] }>(urlHelper.api('/ads'), {params});

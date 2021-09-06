@@ -16,8 +16,8 @@ export class AdsService {
     return this.adsApi.getAds(
       relationType || '',
       gender || '',
-      fromAge || '',
-      toAge || '',
+      fromAge || 0,
+      toAge || 0,
       bloodType || '',
       city || ''
     );
