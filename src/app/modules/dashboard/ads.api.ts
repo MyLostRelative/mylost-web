@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { urlHelper } from '../../config/api.config';
@@ -10,8 +10,22 @@ export class AdsApi {
 
   constructor(public http: HttpClient) {}
 
-  getAds(): Observable<{ result: Ad[] }> {
-    return this.http.get<{ result: Ad[] }>(urlHelper.api('/ads'));
+  getAds(
+    relationType: string,
+    gender: string,
+    fromAge: string,
+    toAge: string,
+    bloodType: string,
+    city: string
+  ): Observable<{ result: Ad[] }> {
+    const params = new HttpParams()
+      .set('relationType', relationType)
+      .set('gender', gender)
+      .set('fromAge', fromAge)
+      .set('toAge', toAge)
+      .set('bloodType', bloodType)
+      .set('city', city);
+    return this.http.get<{ result: Ad[] }>(urlHelper.api('/ads'), {params});
   }
 
   getAd(blogId: number): Observable<{ result: Ad }> {

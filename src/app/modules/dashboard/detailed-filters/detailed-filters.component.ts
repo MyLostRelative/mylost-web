@@ -1,6 +1,7 @@
 import { EventEmitter, Output } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Filters } from 'src/app/models/filters';
 
 @Component({
   selector: 'app-detailed-filters',
@@ -8,7 +9,7 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./detailed-filters.component.css']
 })
 export class DetailedFiltersComponent implements OnInit {
-  @Output() filterEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() filterEvent: EventEmitter<Filters> = new EventEmitter<Filters>();
 
   genders = [
     { value: 'female', title: 'მდედრობითი' },
@@ -69,6 +70,9 @@ export class DetailedFiltersComponent implements OnInit {
   }
 
   onFilter() {
-    this.filterEvent.emit(true);
+    const filters = {...this.filtersForm.value};
+    filters.fromAge = filters.age;
+    filters.toAge = filters.age;
+    this.filterEvent.emit(filters);
   }
 }

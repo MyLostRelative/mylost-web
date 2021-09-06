@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Ad } from 'src/app/models/ad';
+import { Filters } from 'src/app/models/filters';
 import { AdsService } from '../ads.service';
 
 @Component({
@@ -15,14 +16,14 @@ export class DashboardComponent implements OnInit {
     this.getFilteredAds();
   }
 
-  getFilteredAds() {
-    this.adsService.getAds().subscribe((adsObj) => {
+  getFilteredAds(filters?: Filters) {
+    this.adsService.getAds(filters || {} as Filters).subscribe((adsObj) => {
       this.ads = adsObj.result;
     });
   }
 
-  filterAds(e) {
-    console.log(e);
-    this.getFilteredAds();
+  filterAds(filters: Filters) {
+    console.log(filters);
+    this.getFilteredAds(filters);
   }
 }
